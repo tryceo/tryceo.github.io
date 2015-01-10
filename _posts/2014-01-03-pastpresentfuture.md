@@ -1,6 +1,6 @@
 ---
-title: "My Background"
-bg: #ff0000  #defined in _config.yml, can use html color like '#0fbfcf'
+title: "Background"
+bg: red  #defined in _config.yml, can use html color like '#0fbfcf'
 color: white   #text color
 fa-icon: child
 ---
