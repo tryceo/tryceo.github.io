@@ -1,3 +1,5 @@
+The source for my website tryceo.github.io
 
-This is a compressed-commit version of
+Thanks to Tim O'Brien for desinging this awesome theme.
+
 [github.com/t413/SinglePaged](https://github.com/t413/SinglePaged)
