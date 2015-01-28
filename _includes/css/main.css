@@ -179,6 +179,11 @@ nav ul li:hover, nav ul li.active {
     padding-top: 140px;
 }
 
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+}
 
 #footer {
   padding: 8px 0;
