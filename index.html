@@ -1,64 +1,228 @@
----
----
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site.title }}</title>
-	<meta name="keywords" content="{{ site.keywords }}">
-	<meta name="description" content="{{ site.description }}">
-  <link rel="stylesheet" href="combo.css">
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  {% if site.favicon %}<link rel="shortcut icon" href="{{ site.favicon }}" type="image/x-icon">{% endif %}
-	{% if site.touch_icon %}<link rel="apple-touch-icon" href="{{ site.touch_icon }}">{% endif %}
-</head>
-<body>
-  <div id="main">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Performance Engineer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio website for a software engineer at Meta focused on mobile performance, backend latency, monetization impact, and infrastructure efficiency."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top">Performance Engineer</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#impact">Impact</a>
+          <a href="#work">Work</a>
+          <a href="#approach">Approach</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-    <nav><ul>
-      {% for node in site.posts reversed %}
-        {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
-        <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
-      {% endfor %}
-    </ul></nav>
+      <main id="top">
+        <section class="hero section">
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow">Meta · Software Engineer</p>
+            <h1>I turn latency wins into product growth, revenue, and efficiency.</h1>
+            <p class="lede">
+              I work across mobile and backend systems, focusing on the critical
+              path between technical performance and business outcomes. My work
+              has improved app start latency, lifted session health and DAU
+              signals, unlocked hundreds of millions in ad load and monetization
+              upside, and reduced compute spend by millions of dollars.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#impact">See impact</a>
+              <a class="button button-secondary" href="#contact">Get in touch</a>
+            </div>
+          </div>
 
+          <aside class="hero-panel" data-reveal>
+            <div class="hero-panel__label">Current focus</div>
+            <div class="hero-panel__value">Performance as leverage</div>
+            <ul class="hero-panel__list">
+              <li>Mobile startup and latency optimization</li>
+              <li>Backend efficiency and cost reduction</li>
+              <li>Metrics that connect user experience to revenue</li>
+            </ul>
+            <p class="hero-panel__note">
+              I care about the whole chain: instrumentation, diagnosis,
+              optimization, safe rollout, and measurable impact.
+            </p>
+          </aside>
+        </section>
 
-    {% for page in site.posts reversed %}
-      {% capture id %}{{ page.id | remove:'/' | downcase }}{% endcapture %}
-      <div id="{{id}}" class="section p-{{id}}">
-        {% if page.icon %}
-        <div class="subtlecircle sectiondivider imaged">
-          <img src="{{page.icon}}" alt="section icon" />
-          <h5 class="icon-title">{{ page.title }}</h5>
-        </div>
-        {% elsif page.fa-icon %}
-        <div class="subtlecircle sectiondivider faicon">
-          <span class="fa-stack">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-{{ page.fa-icon }} fa-stack-1x"></i>
-          </span>
-          <h5 class="icon-title">{{ page.title }}</h5>
-        </div>
-        {% endif %}
-        <div class="container {{ page.style }}">
-          {{ page.content }}
-        </div>
-      </div>
-    {% endfor %}
+        <section id="impact" class="section">
+          <div class="section-heading" data-reveal>
+            <p class="section-kicker">Impact</p>
+            <h2>Performance work that moves more than dashboards.</h2>
+            <p>
+              I focus on the optimizations that matter twice: once for users,
+              and again for the business.
+            </p>
+          </div>
 
+          <div class="stats-grid">
+            <article class="stat-card" data-reveal>
+              <p class="stat-value">Faster app start</p>
+              <p class="stat-copy">
+                Reduced user-facing startup latency across mobile flows that
+                directly shape first impression, session quality, and retention.
+              </p>
+            </article>
 
-    <div id="footer" class="section text-white">
-      <div class="container">
-        {% capture foottext %} {% include footer.md %} {% endcapture %}
-        {{ foottext | markdownify }}
-      </div>
+            <article class="stat-card" data-reveal>
+              <p class="stat-value">Stronger DAU and sessions</p>
+              <p class="stat-copy">
+                Improved product health metrics by making core interactions feel
+                quicker, more reliable, and less interruptive.
+              </p>
+            </article>
+
+            <article class="stat-card" data-reveal>
+              <p class="stat-value">Hundreds of millions</p>
+              <p class="stat-copy">
+                Drove significant ad load and monetization upside through
+                latency improvements that compound at scale.
+              </p>
+            </article>
+
+            <article class="stat-card" data-reveal>
+              <p class="stat-value">Millions saved</p>
+              <p class="stat-copy">
+                Improved server efficiency and resource utilization to reduce
+                infrastructure and compute costs by millions of dollars.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="work" class="section">
+          <div class="section-heading" data-reveal>
+            <p class="section-kicker">Selected Work</p>
+            <h2>From startup milliseconds to fleet-wide savings.</h2>
+            <p>
+              These are representative summaries designed to communicate scope
+              and outcomes without exposing confidential implementation details.
+            </p>
+          </div>
+
+          <div class="work-grid">
+            <article class="work-card" data-reveal>
+              <p class="work-index">01</p>
+              <h3>Mobile startup performance</h3>
+              <p>
+                Improved app start paths by reducing blocking work, tightening
+                critical initialization sequences, and prioritizing the latency
+                segments users actually feel.
+              </p>
+            </article>
+
+            <article class="work-card" data-reveal>
+              <p class="work-index">02</p>
+              <h3>Revenue through latency</h3>
+              <p>
+                Optimized performance across flows tied to ads and monetization,
+                helping translate engineering improvements into large-scale
+                revenue upside.
+              </p>
+            </article>
+
+            <article class="work-card" data-reveal>
+              <p class="work-index">03</p>
+              <h3>Backend efficiency</h3>
+              <p>
+                Reduced compute waste and improved server-side efficiency with a
+                focus on cost-aware systems design, capacity, and sustainable
+                operating leverage.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="approach" class="section">
+          <div class="section-heading" data-reveal>
+            <p class="section-kicker">Approach</p>
+            <h2>I like hard problems with measurable outcomes.</h2>
+            <p>
+              The throughline in my work is simple: make performance legible,
+              improve the critical path, and prove the outcome in production.
+            </p>
+          </div>
+
+          <div class="approach-grid">
+            <article class="approach-card" data-reveal>
+              <h3>Measure reality</h3>
+              <p>
+                I start with profiling, instrumentation, and product context so
+                we optimize what users and systems are actually paying for.
+              </p>
+            </article>
+
+            <article class="approach-card" data-reveal>
+              <h3>Fix the right bottleneck</h3>
+              <p>
+                I focus on the constraint that matters most, whether that is app
+                startup, latency regressions, request paths, or inefficient
+                backend resource usage.
+              </p>
+            </article>
+
+            <article class="approach-card" data-reveal>
+              <h3>Ship with confidence</h3>
+              <p>
+                I care about safe rollout, regression prevention, and making
+                sure improvements survive real production behavior at scale.
+              </p>
+            </article>
+          </div>
+
+          <div class="focus-panel" data-reveal>
+            <p class="focus-label">What I focus on most</p>
+            <div class="chip-row">
+              <span class="chip">App start latency</span>
+              <span class="chip">Mobile performance</span>
+              <span class="chip">Backend efficiency</span>
+              <span class="chip">Compute savings</span>
+              <span class="chip">Monetization impact</span>
+              <span class="chip">Observability</span>
+              <span class="chip">Critical path analysis</span>
+              <span class="chip">Production rollouts</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+          <div class="contact-card" data-reveal>
+            <p class="section-kicker">Contact</p>
+            <h2>Looking for someone who can connect systems performance to product impact?</h2>
+            <p>
+              I am most effective where engineering depth, execution quality,
+              and business outcomes overlap.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:hello@yourdomain.com">Email</a>
+              <a href="https://www.linkedin.com/in/your-handle/">LinkedIn</a>
+              <a href="https://github.com/your-handle">GitHub</a>
+            </div>
+            <p class="contact-note">
+              Replace the contact links with your actual email and profiles.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>
+          Built to present impact clearly, with high-level summaries that stay
+          inside reasonable confidentiality boundaries.
+        </p>
+        <p>&copy; <span id="year"></span> Performance Engineer Portfolio</p>
+      </footer>
     </div>
-  </div>
-
-{% include analytics.html %}
-</body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="site.js"></script>
+  </body>
 </html>
