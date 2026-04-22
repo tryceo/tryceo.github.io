@@ -607,6 +607,159 @@ h3 {
   padding: 1.55rem;
 }
 
+.chart-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+  gap: 1.4rem;
+  margin-top: 1.35rem;
+  padding: 1.5rem;
+}
+
+.chart-copy {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.chart-copy h3 {
+  max-width: 12ch;
+}
+
+.chart-summary {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.chart-summary__value {
+  font-family: "Sora", "Space Grotesk", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: #dff3ff;
+}
+
+.chart-summary__text {
+  color: var(--muted);
+}
+
+.latency-chart {
+  position: relative;
+  overflow: hidden;
+  min-height: 23rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius-xl) - 8px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(4, 20, 39, 0.68);
+}
+
+.latency-chart::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -5rem -4rem;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(81, 184, 255, 0.14), transparent 70%);
+  pointer-events: none;
+}
+
+.chart-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  color: #dff3ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.latency-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-grid line {
+  stroke: rgba(147, 190, 255, 0.14);
+  stroke-width: 1;
+}
+
+.chart-axis text {
+  fill: var(--muted);
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+.latency-area {
+  opacity: 0;
+  transform: translateY(14px);
+  transform-origin: bottom;
+}
+
+.latency-path {
+  stroke-dasharray: 760;
+  stroke-dashoffset: 760;
+  filter: drop-shadow(0 0 14px rgba(81, 184, 255, 0.28));
+}
+
+.latency-points circle {
+  fill: #dff3ff;
+  stroke: #0866ff;
+  stroke-width: 4;
+  opacity: 0;
+  transform: scale(0.4);
+  transform-origin: center;
+}
+
+.chart-panel.is-visible .latency-area {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 500ms ease 250ms,
+    transform 500ms ease 250ms;
+}
+
+.chart-panel.is-visible .latency-path {
+  animation: drawLine 1.6s cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
+}
+
+.chart-panel.is-visible .latency-points circle {
+  animation: popPoint 420ms cubic-bezier(0.2, 1.2, 0.4, 1) forwards;
+}
+
+.chart-panel.is-visible .latency-points circle:nth-child(1) {
+  animation-delay: 280ms;
+}
+
+.chart-panel.is-visible .latency-points circle:nth-child(2) {
+  animation-delay: 430ms;
+}
+
+.chart-panel.is-visible .latency-points circle:nth-child(3) {
+  animation-delay: 580ms;
+}
+
+.chart-panel.is-visible .latency-points circle:nth-child(4) {
+  animation-delay: 730ms;
+}
+
+.chart-panel.is-visible .latency-points circle:nth-child(5) {
+  animation-delay: 880ms;
+}
+
+.chart-panel.is-visible .latency-points circle:nth-child(6) {
+  animation-delay: 1030ms;
+}
+
 .stat-card {
   display: flex;
   flex-direction: column;
@@ -813,6 +966,24 @@ h3 {
   }
 }
 
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes popPoint {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (max-width: 1100px) {
   .hero,
   .stats-grid,
@@ -838,6 +1009,10 @@ h3 {
   .hero-stage__ring--inner {
     width: 21rem;
     height: 21rem;
+  }
+
+  .chart-panel {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -887,6 +1062,7 @@ h3 {
 
   .hero-dashboard,
   .stat-card,
+  .chart-panel,
   .work-card,
   .approach-card,
   .focus-panel,
@@ -925,5 +1101,15 @@ h3 {
   [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+
+  .latency-area,
+  .latency-points circle {
+    opacity: 1;
+    transform: none;
+  }
+
+  .latency-path {
+    stroke-dashoffset: 0;
   }
 }

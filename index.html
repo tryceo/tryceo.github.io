@@ -187,6 +187,87 @@
               </p>
             </article>
           </div>
+
+          <div class="chart-panel card-tilt" data-reveal data-reveal-delay="200" data-tilt>
+            <div class="chart-copy">
+              <p class="section-kicker">Latency Trend</p>
+              <h3>Latency moving in the right direction.</h3>
+              <p>
+                A representative performance trend: each release removes more
+                time from the critical path, leading to a noticeably faster
+                user experience and stronger downstream product metrics.
+              </p>
+              <div class="chart-summary">
+                <div class="chart-summary__value">-39%</div>
+                <div class="chart-summary__text">
+                  p95 startup latency improvement across a multi-release
+                  optimization arc.
+                </div>
+              </div>
+            </div>
+
+            <div class="latency-chart" aria-label="Line chart showing latency decreasing over successive releases">
+              <div class="chart-badge">p95 app start latency</div>
+              <svg viewBox="0 0 640 360" role="img" aria-hidden="true">
+                <defs>
+                  <linearGradient id="latencyArea" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#51b8ff" stop-opacity="0.42" />
+                    <stop offset="100%" stop-color="#51b8ff" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="latencyLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#7fd4ff" />
+                    <stop offset="100%" stop-color="#0866ff" />
+                  </linearGradient>
+                </defs>
+
+                <g class="chart-grid">
+                  <line x1="70" y1="70" x2="590" y2="70"></line>
+                  <line x1="70" y1="135" x2="590" y2="135"></line>
+                  <line x1="70" y1="200" x2="590" y2="200"></line>
+                  <line x1="70" y1="265" x2="590" y2="265"></line>
+                  <line x1="70" y1="330" x2="590" y2="330"></line>
+                </g>
+
+                <g class="chart-axis">
+                  <text x="26" y="75">920ms</text>
+                  <text x="26" y="140">820ms</text>
+                  <text x="26" y="205">720ms</text>
+                  <text x="26" y="270">620ms</text>
+                  <text x="26" y="335">520ms</text>
+
+                  <text x="70" y="350">Baseline</text>
+                  <text x="174" y="350">R1</text>
+                  <text x="278" y="350">R2</text>
+                  <text x="382" y="350">R3</text>
+                  <text x="486" y="350">R4</text>
+                  <text x="570" y="350">Today</text>
+                </g>
+
+                <path
+                  class="latency-area"
+                  d="M70 95 C110 105, 135 118, 174 135 S245 170, 278 188 S347 214, 382 228 S448 246, 486 255 S546 264, 590 268 L590 330 L70 330 Z"
+                  fill="url(#latencyArea)"
+                ></path>
+                <path
+                  class="latency-path"
+                  d="M70 95 C110 105, 135 118, 174 135 S245 170, 278 188 S347 214, 382 228 S448 246, 486 255 S546 264, 590 268"
+                  fill="none"
+                  stroke="url(#latencyLine)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                ></path>
+
+                <g class="latency-points">
+                  <circle cx="70" cy="95" r="7"></circle>
+                  <circle cx="174" cy="135" r="7"></circle>
+                  <circle cx="278" cy="188" r="7"></circle>
+                  <circle cx="382" cy="228" r="7"></circle>
+                  <circle cx="486" cy="255" r="7"></circle>
+                  <circle cx="590" cy="268" r="7"></circle>
+                </g>
+              </svg>
+            </div>
+          </div>
         </section>
 
         <section id="work" class="section">
