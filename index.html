@@ -8,10 +8,22 @@
       name="description"
       content="Portfolio website for a software engineer at Meta focused on mobile performance, backend latency, monetization impact, and infrastructure efficiency."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
+    <div class="ambient" aria-hidden="true">
+      <span class="ambient-orb ambient-orb--one"></span>
+      <span class="ambient-orb ambient-orb--two"></span>
+      <span class="ambient-orb ambient-orb--three"></span>
+      <span class="ambient-grid"></span>
+    </div>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="#top">Performance Engineer</a>
@@ -25,7 +37,7 @@
 
       <main id="top">
         <section class="hero section">
-          <div class="hero-copy" data-reveal>
+          <div class="hero-copy" data-reveal data-reveal-delay="0">
             <p class="eyebrow">Meta · Software Engineer</p>
             <h1>I turn latency wins into product growth, revenue, and efficiency.</h1>
             <p class="lede">
@@ -39,25 +51,97 @@
               <a class="button button-primary" href="#impact">See impact</a>
               <a class="button button-secondary" href="#contact">Get in touch</a>
             </div>
+            <div class="hero-tags" aria-label="Core focus">
+              <span class="hero-tag">App start latency</span>
+              <span class="hero-tag">Backend efficiency</span>
+              <span class="hero-tag">Monetization impact</span>
+              <span class="hero-tag">Compute savings</span>
+            </div>
           </div>
 
-          <aside class="hero-panel" data-reveal>
-            <div class="hero-panel__label">Current focus</div>
-            <div class="hero-panel__value">Performance as leverage</div>
-            <ul class="hero-panel__list">
-              <li>Mobile startup and latency optimization</li>
-              <li>Backend efficiency and cost reduction</li>
-              <li>Metrics that connect user experience to revenue</li>
-            </ul>
-            <p class="hero-panel__note">
-              I care about the whole chain: instrumentation, diagnosis,
-              optimization, safe rollout, and measurable impact.
-            </p>
+          <aside class="hero-stage" data-reveal data-reveal-delay="120">
+            <span class="hero-stage__ring hero-stage__ring--outer"></span>
+            <span class="hero-stage__ring hero-stage__ring--inner"></span>
+            <span class="hero-stage__glow"></span>
+            <div class="hero-stage__badge hero-stage__badge--one">Mobile</div>
+            <div class="hero-stage__badge hero-stage__badge--two">Backend</div>
+            <div class="hero-stage__badge hero-stage__badge--three">Revenue</div>
+            <div class="hero-dashboard card-tilt" data-tilt>
+              <div class="dashboard-top">
+                <div>
+                  <p class="dashboard-label">Current focus</p>
+                  <p class="dashboard-title">Performance as leverage.</p>
+                </div>
+                <span class="dashboard-chip">Critical path</span>
+              </div>
+              <div class="dashboard-spark" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="dashboard-grid">
+                <article class="metric-tile">
+                  <p class="metric-label">User experience</p>
+                  <p class="metric-title">Faster session entry</p>
+                  <p class="metric-copy">
+                    Reduce startup blockers and improve the first moments users feel.
+                  </p>
+                </article>
+                <article class="metric-tile">
+                  <p class="metric-label">Monetization</p>
+                  <p class="metric-title">Scale the upside</p>
+                  <p class="metric-copy">
+                    Turn latency wins into healthier sessions, ad load, and revenue.
+                  </p>
+                </article>
+                <article class="metric-tile">
+                  <p class="metric-label">Infrastructure</p>
+                  <p class="metric-title">Spend smarter</p>
+                  <p class="metric-copy">
+                    Eliminate wasted compute and make backend systems cheaper to run.
+                  </p>
+                </article>
+                <article class="metric-tile">
+                  <p class="metric-label">Execution</p>
+                  <p class="metric-title">Ship with proof</p>
+                  <p class="metric-copy">
+                    Measure, optimize, roll out safely, and verify the production gain.
+                  </p>
+                </article>
+              </div>
+            </div>
           </aside>
         </section>
 
+        <section class="signal-strip" aria-label="Focus areas">
+          <div class="signal-strip__track">
+            <span>App start latency</span>
+            <span>Production performance</span>
+            <span>Backend efficiency</span>
+            <span>DAU and sessions</span>
+            <span>Monetization uplift</span>
+            <span>Compute savings</span>
+            <span>Observability</span>
+            <span>Critical path analysis</span>
+            <span>App start latency</span>
+            <span>Production performance</span>
+            <span>Backend efficiency</span>
+            <span>DAU and sessions</span>
+            <span>Monetization uplift</span>
+            <span>Compute savings</span>
+            <span>Observability</span>
+            <span>Critical path analysis</span>
+          </div>
+        </section>
+
         <section id="impact" class="section">
-          <div class="section-heading" data-reveal>
+          <div class="section-heading" data-reveal data-reveal-delay="0">
             <p class="section-kicker">Impact</p>
             <h2>Performance work that moves more than dashboards.</h2>
             <p>
@@ -67,7 +151,8 @@
           </div>
 
           <div class="stats-grid">
-            <article class="stat-card" data-reveal>
+            <article class="stat-card card-tilt" data-reveal data-reveal-delay="40" data-tilt>
+              <p class="stat-kicker">01</p>
               <p class="stat-value">Faster app start</p>
               <p class="stat-copy">
                 Reduced user-facing startup latency across mobile flows that
@@ -75,7 +160,8 @@
               </p>
             </article>
 
-            <article class="stat-card" data-reveal>
+            <article class="stat-card card-tilt" data-reveal data-reveal-delay="80" data-tilt>
+              <p class="stat-kicker">02</p>
               <p class="stat-value">Stronger DAU and sessions</p>
               <p class="stat-copy">
                 Improved product health metrics by making core interactions feel
@@ -83,7 +169,8 @@
               </p>
             </article>
 
-            <article class="stat-card" data-reveal>
+            <article class="stat-card card-tilt" data-reveal data-reveal-delay="120" data-tilt>
+              <p class="stat-kicker">03</p>
               <p class="stat-value">Hundreds of millions</p>
               <p class="stat-copy">
                 Drove significant ad load and monetization upside through
@@ -91,7 +178,8 @@
               </p>
             </article>
 
-            <article class="stat-card" data-reveal>
+            <article class="stat-card card-tilt" data-reveal data-reveal-delay="160" data-tilt>
+              <p class="stat-kicker">04</p>
               <p class="stat-value">Millions saved</p>
               <p class="stat-copy">
                 Improved server efficiency and resource utilization to reduce
@@ -102,7 +190,7 @@
         </section>
 
         <section id="work" class="section">
-          <div class="section-heading" data-reveal>
+          <div class="section-heading" data-reveal data-reveal-delay="0">
             <p class="section-kicker">Selected Work</p>
             <h2>From startup milliseconds to fleet-wide savings.</h2>
             <p>
@@ -112,7 +200,7 @@
           </div>
 
           <div class="work-grid">
-            <article class="work-card" data-reveal>
+            <article class="work-card card-tilt" data-reveal data-reveal-delay="40" data-tilt>
               <p class="work-index">01</p>
               <h3>Mobile startup performance</h3>
               <p>
@@ -122,7 +210,7 @@
               </p>
             </article>
 
-            <article class="work-card" data-reveal>
+            <article class="work-card card-tilt" data-reveal data-reveal-delay="90" data-tilt>
               <p class="work-index">02</p>
               <h3>Revenue through latency</h3>
               <p>
@@ -132,7 +220,7 @@
               </p>
             </article>
 
-            <article class="work-card" data-reveal>
+            <article class="work-card card-tilt" data-reveal data-reveal-delay="140" data-tilt>
               <p class="work-index">03</p>
               <h3>Backend efficiency</h3>
               <p>
@@ -145,7 +233,7 @@
         </section>
 
         <section id="approach" class="section">
-          <div class="section-heading" data-reveal>
+          <div class="section-heading" data-reveal data-reveal-delay="0">
             <p class="section-kicker">Approach</p>
             <h2>I like hard problems with measurable outcomes.</h2>
             <p>
@@ -155,7 +243,7 @@
           </div>
 
           <div class="approach-grid">
-            <article class="approach-card" data-reveal>
+            <article class="approach-card card-tilt" data-reveal data-reveal-delay="40" data-tilt>
               <h3>Measure reality</h3>
               <p>
                 I start with profiling, instrumentation, and product context so
@@ -163,7 +251,7 @@
               </p>
             </article>
 
-            <article class="approach-card" data-reveal>
+            <article class="approach-card card-tilt" data-reveal data-reveal-delay="90" data-tilt>
               <h3>Fix the right bottleneck</h3>
               <p>
                 I focus on the constraint that matters most, whether that is app
@@ -172,7 +260,7 @@
               </p>
             </article>
 
-            <article class="approach-card" data-reveal>
+            <article class="approach-card card-tilt" data-reveal data-reveal-delay="140" data-tilt>
               <h3>Ship with confidence</h3>
               <p>
                 I care about safe rollout, regression prevention, and making
@@ -181,7 +269,7 @@
             </article>
           </div>
 
-          <div class="focus-panel" data-reveal>
+          <div class="focus-panel card-tilt" data-reveal data-reveal-delay="180" data-tilt>
             <p class="focus-label">What I focus on most</p>
             <div class="chip-row">
               <span class="chip">App start latency</span>
@@ -197,7 +285,7 @@
         </section>
 
         <section id="contact" class="section contact-section">
-          <div class="contact-card" data-reveal>
+          <div class="contact-card card-tilt" data-reveal data-reveal-delay="0" data-tilt>
             <p class="section-kicker">Contact</p>
             <h2>Looking for someone who can connect systems performance to product impact?</h2>
             <p>
