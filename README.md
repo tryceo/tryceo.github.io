@@ -7,6 +7,7 @@ Static portfolio site designed to work directly on GitHub Pages.
 - `index.html` contains the page structure and copy.
 - `styles.css` contains the visual design and responsive layout.
 - `script.js` adds scroll reveals and the footer year.
+- `favicon.svg` provides the browser tab icon.
 - `.nojekyll` tells GitHub Pages to serve the site as plain static files.
 
 ## Deploy to GitHub Pages
