@@ -17,8 +17,8 @@ Static portfolio site designed to work directly on GitHub Pages.
 4. Select your default branch and the `/ (root)` folder.
 5. Save, then wait for GitHub Pages to publish the site.
 
-## Before Publishing
+## Notes
 
-- Replace the placeholder contact links in `index.html`.
-- Update the page title and copy with your preferred name and branding.
-- Add your own domain later if you want a custom URL.
+- The public page intentionally keeps implementation details and internal metrics high level.
+- The site is published from the repository root and does not require a build step.
+- Contact links currently point to the public GitHub profile.
